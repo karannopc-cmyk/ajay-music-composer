@@ -3,3 +3,52 @@
 
 /* Official NCS YouTube embed */
 .youtube-player{position:relative;width:100%;aspect-ratio:16/9;background:#080808;overflow:hidden}.youtube-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.track-credit{font-size:9px;line-height:1.7;color:#888;margin:12px 5px 4px}.track-credit a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+
+
+/* Decorative visualizer synced to YouTube playback state (not raw audio analysis). */
+.visualizer {
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px 8px 2px;
+  margin: 18px 5px 0;
+  border-top: 1px solid #35332d;
+  overflow: hidden;
+}
+.visualizer span {
+  display: block;
+  width: 4px;
+  height: calc(var(--bar) * 1%);
+  min-height: 8px;
+  max-height: 58px;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #ead4a4, #a98249);
+  opacity: .55;
+  transform: scaleY(.35);
+  transform-origin: center;
+}
+.visualizer.is-playing span {
+  opacity: 1;
+  animation: visualizer-pulse .72s ease-in-out infinite alternate;
+  animation-delay: calc(var(--i, 0) * -45ms);
+}
+.visualizer span:nth-child(4n) { --i: 1; }
+.visualizer span:nth-child(4n + 1) { --i: 2; }
+.visualizer span:nth-child(4n + 2) { --i: 3; }
+.visualizer span:nth-child(4n + 3) { --i: 4; }
+.visualizer-label {
+  margin: 0 5px 12px;
+  color: #a99470;
+  font-size: 8px;
+  letter-spacing: .2em;
+  text-align: center;
+}
+@keyframes visualizer-pulse {
+  from { transform: scaleY(.22); }
+  to { transform: scaleY(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .visualizer.is-playing span { animation: none; transform: scaleY(.65); }
+}
