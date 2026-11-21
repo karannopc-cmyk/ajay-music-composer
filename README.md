@@ -6,8 +6,8 @@ A responsive one-page composer portfolio inspired by the reference website share
 Open `index.html` in a modern browser. Internet is required for the Google Fonts and remote Unsplash photography used in this starter.
 
 ## Before publishing
-1. Replace `hello@ajaymusic.example` in `index.html` and `script.js` with your real email address.
-2. Replace the sample composition title and add your own audio file/player. The current play button is a visual preview timer only; it does not play a track.
+1. IMPORTANT: Replace `hello@ajaymusic.example` in `index.html` and `script.js` with Ajay’s real contact email before publishing. The `.example` address is a placeholder and will not receive messages.
+2. The featured On & On track is embedded from the official NCS YouTube video. It is not an MP3 hosted by this site; visitors must press Play in the embedded player. Check NCS permissions before using the track in any other way.
 3. Replace the sample photography with images you have rights to use.
 4. Deploy the folder to Cloudflare Pages or connect a GitHub repository for continuous deployment.
 
