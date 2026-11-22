@@ -3,3 +3,26 @@
 
 /* Featured MP3 audio player */
 .audio-player{padding:10px 5px 4px}.audio-player audio{display:block;width:100%;height:42px;accent-color:var(--gold)}.track-credit{font-size:9px;line-height:1.7;color:#888;margin:12px 5px 4px}
+
+
+/* Distinct visual backgrounds for the four portfolio sections */
+.music-section{
+  background:
+    radial-gradient(ellipse at 82% 18%,rgba(119,91,55,.20),transparent 38%),
+    linear-gradient(145deg,#171613 0%,#11110f 58%,#1d1a15 100%);
+}
+.journey{
+  background:
+    linear-gradient(115deg,rgba(18,18,16,.98) 0%,rgba(28,25,20,.94) 55%,rgba(39,31,23,.88) 100%),
+    url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1800&q=80') center/cover;
+}
+.create-section{
+  background:
+    radial-gradient(ellipse at 12% 72%,rgba(75,91,88,.18),transparent 42%),
+    linear-gradient(135deg,#141715 0%,#171714 55%,#20201b 100%);
+}
+.contact{
+  background:
+    radial-gradient(ellipse at 88% 20%,rgba(91,73,102,.22),transparent 40%),
+    linear-gradient(135deg,#19171c 0%,#171619 55%,#211d20 100%);
+}
