@@ -1,9 +1,12 @@
-# AJAY — Independent Music Composer
+# AJAYVYRA — Independent Music Composer
 
-A responsive one-page composer portfolio inspired by the reference website shared in the conversation. Includes a cinematic hero, compositions section, composer story, services, process, and contact form.
+AJAYVYRA is the brand name for this responsive one-page composer portfolio with a cinematic hero, compositions section, composer story, services, process, contact form, and an on-demand QR sharing panel. The QR code automatically encodes the deployed website address and can be downloaded as a PNG.
 
 ## Preview locally
-Open `index.html` in a modern browser. Internet is required for the Google Fonts and remote Unsplash photography used in this starter.
+Open `index.html` in a modern browser. Internet is required for Google Fonts, remote Unsplash photography, and the QR-code library loaded from CDN.
+
+## Search visibility setup
+The page includes a descriptive title, meta description, canonical URL, social-sharing metadata, structured data, and an index/follow robots directive. The package also includes `robots.txt` and `sitemap.xml`. Search engines decide ranking independently; indexing and a first-place result are not guaranteed.
 
 ## Before publishing
 1. IMPORTANT: Replace `hello@ajaymusic.example` in `index.html` and `script.js` with Ajay’s real contact email before publishing. The `.example` address is a placeholder and will not receive messages.

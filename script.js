@@ -112,3 +112,37 @@ document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDe
   seek.addEventListener('input',()=>{if(audio.duration)audio.currentTime=(Number(seek.value)/100)*audio.duration;paint()});
   mute.addEventListener('click',()=>{audio.muted=!audio.muted;mute.textContent=audio.muted?'×':'♪';mute.setAttribute('aria-label',audio.muted?'Unmute audio':'Mute audio')});
 })();
+
+
+// On-demand QR code for the current AJAYVYRA website address.
+(()=>{
+  const modal=document.getElementById('qrModal');
+  const target=document.getElementById('websiteQr');
+  const urlLabel=document.getElementById('qrUrl');
+  const openers=[document.getElementById('openQr'),document.getElementById('openQrFooter')].filter(Boolean);
+  const close=document.getElementById('closeQr');
+  const download=document.getElementById('downloadQr');
+  if(!modal||!target||!openers.length)return;
+  let generated=false;
+  const siteUrl=window.location.origin+window.location.pathname+window.location.search;
+  urlLabel.textContent=siteUrl;
+  const show=()=>{
+    modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+    if(!generated){
+      if(typeof QRCode==='undefined'){target.textContent='QR code library could not load. Please check your connection and try again.';return;}
+      new QRCode(target,{text:siteUrl,width:240,height:240,colorDark:'#11110f',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});generated=true;
+    }
+    close.focus();
+  };
+  const hide=()=>{modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';};
+  openers.forEach(button=>button.addEventListener('click',show));
+  close.addEventListener('click',hide);
+  modal.addEventListener('click',e=>{if(e.target===modal)hide();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('is-open'))hide();});
+  download.addEventListener('click',()=>{
+    const img=target.querySelector('img');const canvas=target.querySelector('canvas');
+    const data=img?.src||(canvas?canvas.toDataURL('image/png'):null);
+    if(!data)return;
+    const link=document.createElement('a');link.href=data;link.download='AJAYVYRA-website-QR.png';document.body.appendChild(link);link.click();link.remove();
+  });
+})();

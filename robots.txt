@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ajay-music-composer.pages.dev/sitemap.xml
