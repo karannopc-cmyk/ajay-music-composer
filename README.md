@@ -7,7 +7,7 @@ Open `index.html` in a modern browser. Internet is required for the Google Fonts
 
 ## Before publishing
 1. IMPORTANT: Replace `hello@ajaymusic.example` in `index.html` and `script.js` with Ajay’s real contact email before publishing. The `.example` address is a placeholder and will not receive messages.
-2. The featured track is the supplied `akshara.mp3` file. Keep `akshara.mp3` in the same folder as `index.html` so the audio player can load it.
+2. The featured track is the supplied `aetheria.mp3` file. Keep `aetheria.mp3` in the same folder as `index.html` so the audio player can load it.
 3. Replace the sample photography with images you have rights to use.
 4. Deploy the folder to Cloudflare Pages or connect a GitHub repository for continuous deployment.
 
