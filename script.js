@@ -92,3 +92,23 @@ document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDe
   window.addEventListener('resize',resize);
   resize();
 })();
+
+// Custom dark-and-gold audio controls
+(()=>{
+  const audio=document.getElementById('featuredAudio');
+  const play=document.getElementById('audioPlay');
+  const seek=document.getElementById('audioSeek');
+  const current=document.getElementById('audioCurrent');
+  const duration=document.getElementById('audioDuration');
+  const mute=document.getElementById('audioMute');
+  if(!audio||!play||!seek) return;
+  const time=t=>{if(!Number.isFinite(t))return '0:00';const m=Math.floor(t/60),s=Math.floor(t%60);return `${m}:${String(s).padStart(2,'0')}`};
+  const paint=()=>{const pct=audio.duration?audio.currentTime/audio.duration*100:0;seek.value=pct;seek.style.background=`linear-gradient(to right,var(--gold) 0%,var(--gold) ${pct}%,#454139 ${pct}%,#454139 100%)`;current.textContent=time(audio.currentTime)};
+  play.addEventListener('click',()=>{if(audio.paused) audio.play().catch(()=>{});else audio.pause()});
+  audio.addEventListener('play',()=>{play.textContent='Ⅱ';play.setAttribute('aria-label','Pause Aetheria')});
+  audio.addEventListener('pause',()=>{play.textContent='▶';play.setAttribute('aria-label','Play Aetheria')});
+  audio.addEventListener('loadedmetadata',()=>{duration.textContent=time(audio.duration);paint()});
+  audio.addEventListener('timeupdate',paint);
+  seek.addEventListener('input',()=>{if(audio.duration)audio.currentTime=(Number(seek.value)/100)*audio.duration;paint()});
+  mute.addEventListener('click',()=>{audio.muted=!audio.muted;mute.textContent=audio.muted?'×':'♪';mute.setAttribute('aria-label',audio.muted?'Unmute audio':'Mute audio')});
+})();
