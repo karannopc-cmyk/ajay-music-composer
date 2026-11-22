@@ -26,3 +26,40 @@
     radial-gradient(ellipse at 88% 20%,rgba(91,73,102,.22),transparent 40%),
     linear-gradient(135deg,#19171c 0%,#171619 55%,#211d20 100%);
 }
+
+
+/* Reactive featured-track visualizer */
+.visualizer{
+  position:relative;
+  height:104px;
+  margin:0 5px 12px;
+  overflow:hidden;
+  border:1px solid rgba(199,166,107,.22);
+  background:
+    radial-gradient(ellipse at 50% 100%,rgba(199,166,107,.13),transparent 62%),
+    linear-gradient(135deg,#171613,#0d0d0c);
+}
+.visualizer canvas{display:block;width:100%;height:100%}
+.visualizer-hint{
+  position:absolute;
+  left:12px;
+  top:10px;
+  color:#a89470;
+  font:8px var(--sans);
+  letter-spacing:.2em;
+  pointer-events:none;
+}
+.audio-player audio{width:100%;accent-color:var(--gold)}
+@media(max-width:430px){.visualizer{height:86px}}
+
+/* Subtle gold glow around the native audio play button */
+.audio-player audio::-webkit-media-controls-play-button{
+  border:1px solid var(--gold);
+  border-radius:50%;
+  box-shadow:0 0 7px #c7a66b55, inset 0 0 5px #c7a66b22;
+  transition:box-shadow .25s ease, border-color .25s ease;
+}
+.audio-player audio::-webkit-media-controls-play-button:hover{
+  border-color:#e2c58f;
+  box-shadow:0 0 11px #c7a66b99, inset 0 0 7px #c7a66b33;
+}
